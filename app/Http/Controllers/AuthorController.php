@@ -42,11 +42,11 @@ class AuthorController extends Controller
     public function update(int $id, UpdateAuthorRequest $request) {
         $data = $request->validated();
         try {
-            $autor = $this->authorService->update($id, $data);
+            $author = $this->authorService->update($id, $data);
         } catch(ModelNotFoundException $e) {
             return response()->json(['error'=>'Author not found'],404);
         }
-        return new AuthorResource($autor);
+        return new AuthorResource($author);
     }
 
 
@@ -56,7 +56,7 @@ class AuthorController extends Controller
         } catch(ModelNotFoundException $e) {
             return response()->json(['error'=>'Author not found'],404);
         }
-        return new AuthorResource($autor);
+        return new AuthorResource($author);
     }
 
     public function GetBooks($id)
